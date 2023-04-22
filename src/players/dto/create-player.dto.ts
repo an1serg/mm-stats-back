@@ -1,3 +1,4 @@
 export class CreatePlayerDto {
-    nickname: string;
+  nickname: string;
+  playerId: number;
 }

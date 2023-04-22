@@ -1,9 +1,9 @@
-export class CreateGameStatsDto{
-    readonly nickname: string;
-    readonly playerId: number;
-    readonly kills: number;
-    readonly adr: number;
-    readonly kr: number;
-    readonly ud: number;
-    readonly ef: number;
+export class CreateGameStatsDto {
+  readonly nickname: string;
+  readonly gameId: number;
+  readonly playerId: number;
+  readonly kills: number;
+  readonly kd: number;
+  readonly hs: number;
+  readonly kr: number;
 }
