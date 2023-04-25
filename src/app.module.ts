@@ -6,9 +6,12 @@ import { GameStatsModule } from "./game-stats/game-stats.module";
 import { PlayersModule } from "./players/players.module";
 import { Player } from "./players/players.model";
 import { GameStats } from "./game-stats/game-stats.model";
-import { ConfigModule } from "@nestjs/config";
 import { SummaryStat } from "./summary-stat/summary-stat.model";
 import { SummaryStatModule } from "./summary-stat/summary-stat.module";
+import { AuthModule } from "./auth/auth.module";
+import { UserModule } from "./user/user.module";
+import { User } from "./user/user.model";
+import { ConfigModule } from "@nestjs/config";
 
 require("dotenv").config();
 
@@ -23,13 +26,16 @@ require("dotenv").config();
       username: process.env.POSTGRES_USER,
       password: String(process.env.POSTGRES_PASSWORD),
       database: process.env.POSTGRES_DB,
-      models: [Game, Player, GameStats, SummaryStat],
+      models: [Game, Player, GameStats, SummaryStat, User],
       autoLoadModels: true,
     }),
+    ConfigModule.forRoot(),
     GamesModule,
     PlayersModule,
     GameStatsModule,
     SummaryStatModule,
+    AuthModule,
+    UserModule,
   ],
 })
 export class AppModule {}

@@ -20,4 +20,10 @@ export class GameStatsService {
       await this.gameStatsRepository.findAll({ where: { gameId: gameId } });
     return gameStats;
   }
+
+  async getStatsByPlayerId(playerId: number) {
+    const gameStats: CreateGameStatsDto[] =
+      await this.gameStatsRepository.findAll({ where: { playerId: playerId } });
+    return gameStats;
+  }
 }
